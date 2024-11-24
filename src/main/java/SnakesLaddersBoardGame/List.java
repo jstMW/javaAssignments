@@ -1,3 +1,4 @@
+package SnakesLaddersBoardGame;
 /**
  * From Data Structures and Algorithms in Java, Sixth Edition, Goodrich et al.
  */
