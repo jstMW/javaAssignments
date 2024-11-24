@@ -1,2 +1,2 @@
 # javaAssignments
-submitted aasignment and revision might happen later
+submitted assignment and revision might happen later
