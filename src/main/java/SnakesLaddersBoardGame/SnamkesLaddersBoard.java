@@ -10,6 +10,12 @@ public class SnamkesLaddersBoard {
             path = -1;
             expand = 0;
         }
+    }
+
+    private Space[] board;
+    private int playerPosition;
+
+    public SnamkesLaddersBoard() {
 
     }
 
