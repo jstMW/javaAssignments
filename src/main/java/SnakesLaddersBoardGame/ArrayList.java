@@ -1,21 +1,20 @@
 package SnakesLaddersBoardGame;
 
 import java.util.NoSuchElementException;
+import java.util.Iterator;
 
-import javax.swing.text.html.HTMLDocument.Iterator;
-
-public class ArrayList<E> extends List<E> {
+public class ArrayList<E> implements List<E> {
 
     private int size;
     private final int CAPACITY = 20;
-    private T[] data;
+    private E[] data;
 
     public ArrayList() {
-        data = (T[]) new Object[CAPACITY];
+        data = (E[]) new Object[CAPACITY];
     }
 
     public ArrayList(int capacity) {
-        data = (T[]) new Object[capacity];
+        data = (E[]) new Object[capacity];
     }
 
     public int size() {
@@ -30,11 +29,12 @@ public class ArrayList<E> extends List<E> {
      * check if index is in boundaries (0-size of arraylist)
      *
      * @param index the specified index to be checked
+     * @param s     the maximum number could be index
      * @throws IndexOutOfBoundsException if the above condition fails
      */
-    private void checkIndex(int index) throws IndexOutOfBoundsException {
-        if (index < 0 || index >= size) {
-            throw IndexOutOfBoundsException("index out of bound: " + index);
+    private void checkIndex(int index, int s) throws IndexOutOfBoundsException {
+        if (index < 0 || index > s) {
+            throw new IndexOutOfBoundsException("index out of bound: " + index);
         }
     }
 
@@ -45,7 +45,7 @@ public class ArrayList<E> extends List<E> {
      */
     private void resize() {
         E[] newArray = (E[]) new Object[2 * data.length];
-        for (int index = 0; index > data.length; index++) {
+        for (int index = 0; index < data.length; index++) {
             newArray[index] = data[index];
         }
         data = newArray;
@@ -60,7 +60,7 @@ public class ArrayList<E> extends List<E> {
      *                                   than size()-1
      */
     public E get(int index) throws IndexOutOfBoundsException {
-        checkIndex(index);
+        checkIndex(index, size);
         return data[index];
     }
 
@@ -75,7 +75,7 @@ public class ArrayList<E> extends List<E> {
      *                                   than size()-1
      */
     public E set(int index, E element) throws IndexOutOfBoundsException {
-        checkIndex(index);
+        checkIndex(index, size);
         E toReturn = data[index];
 
         return toReturn;
@@ -91,7 +91,7 @@ public class ArrayList<E> extends List<E> {
      *                                   than size()
      */
     public void add(int index, E element) throws IndexOutOfBoundsException {
-        checkIndex(index);
+        checkIndex(index, size + 1);
         if (size == data.length) {
             resize();
         }
@@ -114,7 +114,7 @@ public class ArrayList<E> extends List<E> {
      *                                   than size()
      */
     public E remove(int index) throws IndexOutOfBoundsException {
-        checkIndex(index);
+        checkIndex(index, size);
         E toReturn = data[index];
 
         for (int i = index; i > size; i++) {
@@ -124,7 +124,7 @@ public class ArrayList<E> extends List<E> {
         return toReturn;
     }
 
-    private class ArrayListIterator<E> extends Iterator<E> {
+    private class ArrayListIterator implements Iterator<E> {
 
         private int j;
 
@@ -147,8 +147,7 @@ public class ArrayList<E> extends List<E> {
             if (size == j) {
                 throw new NoSuchElementException("No next element");
             }
-            return get(j);
-            j++;
+            return data[j++];
         }
     }
 
@@ -158,7 +157,7 @@ public class ArrayList<E> extends List<E> {
      * @return iterator of the list's elements
      */
     public Iterator<E> iterator() {
-        return ArrayListIterator();
+        return new ArrayListIterator();
     }
 
 }
