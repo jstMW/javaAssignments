@@ -38,6 +38,10 @@ public class SnakesLaddersBoard {
 
     }
 
+    public int getPlayerPosition() {
+        return playerPosition;
+    }
+
     private void addSpaces(int number) {
         ArrayList<Space> newBoard = new ArrayList<Space>(number);
         for (int i = 0; i < number; i++) {
@@ -63,7 +67,7 @@ public class SnakesLaddersBoard {
     private void changeSpacesToLadders(int howMany) {
 
         int start = 1;
-        int end = board.size()-1;
+        int end = board.size() - 1;
         Random rand = new Random();
 
         for (int i = 0; i < howMany; i++) {
@@ -73,12 +77,11 @@ public class SnakesLaddersBoard {
                 // if (hasRole(board.get(from)) && hasRole(board.get(to))) {
                 // continue;
                 // }
-                //ToDo: must prevent reassigning a role to an space that already has a role assigned to it!
 
+                //
                 from = rand.nextInt(end) + start;
                 to = rand.nextInt(end) + start + from;
             }
-            System.out.println(from + "->" + to);
             board.get(to).setPath(from);
         }
 
@@ -87,7 +90,7 @@ public class SnakesLaddersBoard {
     private void changeSpacesToSnakes(int howMany) {
 
         int start = 1;
-        int end = board.size()-1;
+        int end = board.size() - 1;
         Random rand = new Random();
 
         for (int i = 0; i < howMany; i++) {
@@ -97,7 +100,6 @@ public class SnakesLaddersBoard {
                 from = rand.nextInt(end) + start;
                 to = rand.nextInt(end) + start - from;
             }
-            System.out.println(to + "->" + from);
             board.get(to).setPath(from);
         }
 
@@ -110,11 +112,22 @@ public class SnakesLaddersBoard {
     private void addSpaces(int number, int index) {
     }
 
+    public void move(int number) {
+        playerPosition += number;
+        if (board.get(playerPosition).getPath() != -1) {
+            playerPosition = board.get(playerPosition).getPath();
+        }
+    }
+
     public String toString() {
         StringBuilder toPrint = new StringBuilder("@ ");
 
+        // for (Space space : board) {
+        // toPrint.append(space.toString());
+        // }
+        //
         for (int i = 1; i < board.size(); i++) {
-            toPrint.append(i);
+            toPrint.append(i+1);
             if (board.get(i).getExpand() > 0) {
                 toPrint.append("+");
             } else if (board.get(i).getExpand() < 0) {
@@ -128,6 +141,8 @@ public class SnakesLaddersBoard {
                 toPrint.append(" ");
             }
         }
+        toPrint.append("\nthe player is located at: ");
+        toPrint.append(getPlayerPosition());
         return toPrint.toString();
     }
 
