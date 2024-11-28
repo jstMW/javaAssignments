@@ -7,14 +7,11 @@ public class Driver {
         SnakesLaddersBoard board = new SnakesLaddersBoard(number);
 
 
+        //print the board
         System.out.println(board);
-//
-        //for (int i=0; i<10; i++) {
-            //board.move(i);
-            //System.out.println(board);
-        //}
 
 
+        //start the game
         Scanner userInput = new Scanner(System.in);
         while (board.getPlayerPosition() != number-1) {
             System.out.println("Enter your move: ");
