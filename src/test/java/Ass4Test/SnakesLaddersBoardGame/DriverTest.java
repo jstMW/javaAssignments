@@ -1,4 +1,4 @@
 package SnakesLaddersBoardGame;
 
-public class SnamkesLaddersBoard {
+public class DriverTest {
 }
