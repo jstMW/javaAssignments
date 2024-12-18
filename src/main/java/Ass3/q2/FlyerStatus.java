@@ -1,7 +1,7 @@
 package Ass3.q2;
 import java.util.Random;
-public class FlyerStatus {
-    GOLD, SILVER, BRONZE, NONE
+public enum FlyerStatus {
+    GOLD, SILVER, BRONZE, NONE;
 
     public Fare randomValue() {
         Random rand = new Random();

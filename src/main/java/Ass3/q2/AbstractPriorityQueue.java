@@ -1,4 +1,4 @@
-package Ass.q2;
+package Ass3.q2;
 public abstract class AbstractPriorityQueue<K, V> implements PriorityQueue<K, V> {
     protected static class PQEntry<K, V> implements Entry<K, V> {
         private K key;

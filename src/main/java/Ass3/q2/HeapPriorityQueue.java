@@ -2,8 +2,8 @@ package Ass3.q2;
 
 
 
-public class HeapPriorityQueue<K, V> implements PriorityQueue<K, V> {
-    protected ArrayList<Enrty<K, V>> heap = new ArrayList<Enrty<K, V>>();
+public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
+    protected ArrayList<Entry<K, V>> heap = new ArrayList<Entry<K, V>>();
 
     public HeapPriorityQueue() {super();}
 

@@ -1,7 +1,7 @@
 package Ass3.q2;
 public class Passenger {
     private String passportNo;
-    private Flare fareCode;
+    private Fare fareCode;
     private FlyerStatus flyerStatusCode;
     private Date registerationDate;
 
