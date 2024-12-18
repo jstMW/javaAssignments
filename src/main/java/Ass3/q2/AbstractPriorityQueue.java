@@ -18,7 +18,7 @@ public abstract class AbstractPriorityQueue<K, V> implements PriorityQueue<K, V>
         protected AbstractPriorityQueue(Comparator<K> c) {comp = c;}
         protected AbstractPriorityQueue() {this(new DefaultComparator())}
 
-        public int compare(Entry<K, V> a, Entry<K, V> b) {
+        protected int compare(Entry<K, V> a, Entry<K, V> b) {
             return comp.compare(a.getKey(), b.getKey());
     }
 }
