@@ -1,4 +1,5 @@
 package Ass3.q2;
+import java.util.Date;
 
 public class Passenger {
     private String passportNo;
