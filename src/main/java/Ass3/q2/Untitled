@@ -1,0 +1,2 @@
+pakge
+public class heapPriorityQueue<K, E> implements PriorityQueue<K, E> {}
