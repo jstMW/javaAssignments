@@ -1,3 +1,4 @@
+package Ass3.q2;
 public class Passenger {
     private String passportNo;
     private Flare fareCode;

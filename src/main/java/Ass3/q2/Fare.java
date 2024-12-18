@@ -1,3 +1,4 @@
+package Ass3.q2;
 import java.util.Random;
 public Enum Fare {
     FULL, DISC, BUDDY
