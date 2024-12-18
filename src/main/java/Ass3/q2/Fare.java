@@ -1,3 +1,3 @@
 public Enum Fare {
-    Full, Disc, Buddy
+    FULL, DISC, BUDDY
 }
