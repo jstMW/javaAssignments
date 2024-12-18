@@ -31,5 +31,5 @@ public abstract class AbstractPriorityQueue<K, V> implements PriorityQueue<K, V>
         }
     }
 
-
+    public boolean isEmpty() {return heap.size()==0;}
 }
