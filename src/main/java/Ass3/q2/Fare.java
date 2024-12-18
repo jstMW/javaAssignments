@@ -3,7 +3,7 @@ import java.util.Random;
 public enum Fare {
     FULL, DISC, BUDDY;
 
-    public Fare randomValue() {
+    public static Fare randomValue() {
         Random rand = new Random();
         int ordinal = rand.nextInt()%3;
         for (Fare f: Fare.values()) {

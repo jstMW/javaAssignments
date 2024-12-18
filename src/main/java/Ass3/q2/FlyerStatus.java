@@ -3,7 +3,7 @@ import java.util.Random;
 public enum FlyerStatus {
     GOLD, SILVER, BRONZE, NONE;
 
-    public Fare randomValue() {
+    public static FlyerStatus randomValue() {
         Random rand = new Random();
         int ordinal = rand.nextInt()%4;
         for (Fare f: Fare.values()) {
