@@ -1,7 +1,7 @@
 public class Passenger {
     private String passportNo;
-    private String fareCode;
-    private String flyerStatusCode;
+    private Flare fareCode;
+    private FlyerStatus flyerStatusCode;
     private Date registerationDate;
 
     public Passenger(String passportNo, String fareCode, String flyerStatusCode, Date registerationDate) {
