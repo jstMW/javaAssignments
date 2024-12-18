@@ -1,4 +1,5 @@
 package Ass3.q2;
+
 public class Passenger {
     private String passportNo;
     private Fare fareCode;
@@ -11,6 +12,12 @@ public class Passenger {
         this.flyerStatusCode = FlyerStatus.randomValue();
         this.registerationDate = new Date();
     }
+
+    public String getPassportNo() {return passportNo;}
+    public Fare getFareCode() {return fareCode;}
+    public FlyerStatus getFlyerStatusCode() {return flyerStatusCode;}
+    public Date getRegisterationDate() {return registerationDate;}
+
 
     public Passenger PassengerComparator(Passenger a, Passenger b) {
         int compareFare = compare(a.getFare(), b.getFare());
@@ -26,6 +33,6 @@ public class Passenger {
         int compareDate = comaper(a.getDate(), b.getDate()); 
         return compareDate > 0 ? a : b;
 
-}
-}
+    }
+
 }
