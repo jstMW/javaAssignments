@@ -6,7 +6,7 @@ public enum FlyerStatus {
     public static FlyerStatus randomValue() {
         Random rand = new Random();
         int ordinal = rand.nextInt()%4;
-        for (Fare f: Fare.values()) {
+        for (FlyerStatus f: FlyerStatus.values()) {
             if (f.ordinal() == ordinal) { return f; }
         }
     }

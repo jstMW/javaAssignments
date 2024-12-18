@@ -7,17 +7,18 @@ public abstract class AbstractPriorityQueue<K, V> implements PriorityQueue<K, V>
             this.key = key;
             this.value =  value;
         }
-        public getKey() {return key;}
-        public getValue() {return value;}
+        public K getKey() {return key;}
+        public V getValue() {return value;}
 
-        protected void setKey(K k) { this.key = k); }
-        protected void setValue(V v) { this.value = v); }
+        protected void setKey(K k) { this.key = k;}
+        protected void setValue(V v) { this.value = v;}
+
 
     }
 
     private Comparator<K> comp;
     protected AbstractPriorityQueue(Comparator<K> c) {comp = c;}
-    protected AbstractPriorityQueue() {this(new DefaultComparator())}
+    protected AbstractPriorityQueue() {this(new DefaultComparator());}
 
     protected int compare(Entry<K, V> a, Entry<K, V> b) {
         return comp.compare(a.getKey(), b.getKey());
@@ -32,5 +33,5 @@ public abstract class AbstractPriorityQueue<K, V> implements PriorityQueue<K, V>
         }
     }
 
-    public boolean isEmpty() {return heap.size()==0;}
+    public boolean isEmpty() {return size()==0;}
 }
