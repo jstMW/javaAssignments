@@ -16,6 +16,10 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
     protected  int right(int j) {return (2*j+2);}
     protected boolean hasLeft(int j) { return left(j) < heap.size();}
     protected boolean hasRight(int j) { return right(j) < heap.size();}
+
+    protected void unheap() {}
+    protected void swap() {}
+    protected void downHeap() {}
         
 
     public int size() {return heap.size();}
@@ -26,7 +30,11 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
     }
 
     public  Enrty<K, V> insert(K key, V value) throws IllegalArgumentException {
-        checkKey(key);
     }
- 
+
+    public Entry<K, V> removeMin() {
+        if (heap.isEmpty()) {return null;}
+        Entry toReturn = heap.get(0);
+
+    }
 }
