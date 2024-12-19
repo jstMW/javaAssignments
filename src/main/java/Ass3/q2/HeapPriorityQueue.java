@@ -7,7 +7,7 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
 
     public HeapPriorityQueue() {super();}
 
-    public HeapPriorityQueue(Ccomparator<K> comp) {
+    public HeapPriorityQueue(Comparator<K> comp) {
         super(comp);
     }
 

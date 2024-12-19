@@ -1,3 +1,4 @@
+package Ass3.q2;
 import java.util.Scanner;
 public class A3Q2 {
     public static void main(String[] args) {
@@ -18,16 +19,16 @@ public class A3Q2 {
         //Add them to queue
         HeapPriorityQueue hpq = new HeapPriorityQueue();
 
-        hpq.add(p1);
-        hpq.add(p2);
-        hpq.add(p3);
-        hpq.add(p4);
-        hpq.add(p5);
-        hpq.add(p6);
-        hpq.add(p7);
-        hpq.add(p8);
-        hpq.add(p9);
-        hpq.add(p10);
+        hpq.insert(p1);
+        hpq.insert(p2);
+        hpq.insert(p3);
+        hpq.insert(p4);
+        hpq.insert(p5);
+        hpq.insert(p6);
+        hpq.insert(p7);
+        hpq.insert(p8);
+        hpq.insert(p9);
+        hpq.insert(p10);
 
 
         //Board 5 Passenger
@@ -44,11 +45,11 @@ public class A3Q2 {
         Passenger p14 = new Passenger(kbd.next());
         Passenger p15 = new Passenger(kbd.next());
 
-        hpq.add(p11);
-        hpq.add(p12);
-        hpq.add(p13);
-        hpq.add(p14);
-        hpq.add(p15);
+        hpq.insert(p11);
+        hpq.insert(p12);
+        hpq.insert(p13);
+        hpq.insert(p14);
+        hpq.insert(p15);
 
         //Board the rest
         hpq.removeMin();
@@ -65,10 +66,35 @@ public class A3Q2 {
     }
 
     public static void printQ(HeapPriorityQueue hpq) {
-       for (p Passenger: hpq) {
-            System.out.print(p);
-            System.out.print(" ");
+            int level = 0;
+            int count = 0;
+            int nodesInLevel = 1;
+
+            System.out.println("----------------------------------");
+
+            for (int i = 0; i < heap.length; i++) {
+                if (count == 0) {
+                    System.out.print("| Level " + level + " | ");
+                }
+
+                System.out.print(heap[i] + " ");
+                count++;
+
+                if (count == nodesInLevel) {
+                    System.out.println("|");
+                    level++;
+                    count = 0;
+                    nodesInLevel = (int) Math.pow(2, level);
+                }
+            }
+
+            if (count > 0) {
+                System.out.println("|");
+            }
+
+            System.out.println("----------------------------------");
         }
+
     }
 }
 

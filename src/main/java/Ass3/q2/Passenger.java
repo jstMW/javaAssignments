@@ -7,7 +7,7 @@ public class Passenger {
     private FlyerStatus flyerStatusCode;
     private Date registerationDate;
 
-    public Passenger(String passportNo, String fareCode, String flyerStatusCode, Date registerationDate) {
+    public Passenger(String passportNo) {
         this.passportNo = passportNo;
         this.fareCode = Fare.randomValue();
         this.flyerStatusCode = FlyerStatus.randomValue();
