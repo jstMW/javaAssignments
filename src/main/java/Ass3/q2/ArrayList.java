@@ -14,21 +14,21 @@ public class ArrayList<E> implements List<E> {
 
 
     public int size() {return size;}
-    public isEmpty() {return size==0;}
+    public boolean isEmpty() {return size==0;}
 
-    public E get(int i) throws IndexOutofBoundException {
+    public E get(int i) throws IndexOutOfBoundException {
         checkIndex(i, size());
         return data[i];
     }
 
-    public E set(int i, E e) throws IndexOutofBoundException {
+    public E set(int i, E e) throws IndexOutOfBoundException {
         checkIndex(i, size());
         E toReturn = data[i];
         data[i] = e;
         return toReturn;
     }
 
-    public void add(int index, E element) throws IndexOutofBoundException {
+    public void add(int index, E element) throws IndexOutOfBoundException {
         checkIndex(index, size());
         if (size == data.length) {
             E[] newData = new E[data.length*2];
@@ -46,7 +46,7 @@ public class ArrayList<E> implements List<E> {
         size++;
     }
 
-    public E remove(int index) throws IndexOutofBoundException {
+    public E remove(int index) throws IndexOutOfBoundException {
         checkIndex(index, size());
         if (isEmpty()) {return null;}
 
@@ -59,10 +59,10 @@ public class ArrayList<E> implements List<E> {
         size--;
         return toReturn;
     }
+    
 
-
-    protected void checkIndex(int index, int size) throws IndexOutofBoundException {
-        if (index < 0 || index >= size) {throw new IndexOutofBoundException("Illegal Index: " + index);}
+    protected void checkIndex(int index, int size) throws IndexOutOfBoundException {
+        if (index < 0 || index >= size) {throw new IndexOutOfBoundException("Illegal Index: " + index);}
      }
 
 
