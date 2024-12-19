@@ -51,16 +51,33 @@ public class A3Q2 {
         hpq.add(p15);
 
         //Board the rest
-        hdq.removeMin();
-        hdq.removeMin();
-        hdq.removeMin();
-        hdq.removeMin();
-        hdq.removeMin();
-        hdq.removeMin();
-        hdq.removeMin();
-        hdq.removeMin();
-        hdq.removeMin();
-        hdq.removeMin();
+        hpq.removeMin();
+        hpq.removeMin();
+        hpq.removeMin();
+        hpq.removeMin();
+        hpq.removeMin();
+        hpq.removeMin();
+        hpq.removeMin();
+        hpq.removeMin();
+        hpq.removeMin();
+        hpq.removeMin();
 
     }
+
+    public static void printQ(HeapPriorityQueue hpq) {
+       for (p Passenger: hpq) {
+            System.out.print(p);
+            System.out.print(" ");
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
