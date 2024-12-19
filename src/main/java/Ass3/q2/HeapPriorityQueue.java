@@ -35,6 +35,5 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
     public Entry<K, V> removeMin() {
         if (heap.isEmpty()) {return null;}
         Entry toReturn = heap.get(0);
-
     }
 }

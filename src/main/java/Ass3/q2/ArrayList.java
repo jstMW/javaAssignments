@@ -2,6 +2,7 @@ package Ass3.q2;
 
 public class ArrayList<E> implements List<E> {
     private E[] data;
+    private int size = 0;
     private final int CAPACITY = 10;
 
     public ArrayList() {
