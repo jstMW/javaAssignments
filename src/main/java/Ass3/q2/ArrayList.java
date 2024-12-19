@@ -16,19 +16,19 @@ public class ArrayList<E> implements List<E> {
     public isEmpty() {return size==0;}
 
     public E get(int i) {
-        checkIndex(i);
+        checkIndex(i, size());
         return data[i];
     }
 
     public E set(int i, E e) {
-        checkIndex(i);
+        checkIndex(i, size());
         E toReturn = data[i];
         data[i] = e;
         return toReturn;
     }
 
     public void add(int index, E element) {
-        checkIndex(index);
+        checkIndex(index, size());
         if (size == data.length) {
             E[] newData = new E[data.length*2];
             for (int i=0; i<data.length; i++) {
@@ -46,7 +46,7 @@ public class ArrayList<E> implements List<E> {
     }
 
     public E remove(int index) {
-        checkIndex(index);
+        checkIndex(index, size());
         if (isEmpty()) {return null;}
 
         E toReturn = data[i];
@@ -60,7 +60,9 @@ public class ArrayList<E> implements List<E> {
     }
 
 
-    private checkIndex(int index)
+    protected void checkIndex(int index, int size) throws IndexOutofBoundException {
+        if (index < 0 || index >= size) {throw new IndexOutofBoundException("Illegal Index: " + index);}
+     }
 
 
 
