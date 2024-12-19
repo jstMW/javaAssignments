@@ -15,19 +15,19 @@ public class ArrayList<E> implements List<E> {
     public int size() {return size;}
     public isEmpty() {return size==0;}
 
-    public E get(int i) {
+    public E get(int i) throws IndexOutofBoundException {
         checkIndex(i, size());
         return data[i];
     }
 
-    public E set(int i, E e) {
+    public E set(int i, E e) throws IndexOutofBoundException {
         checkIndex(i, size());
         E toReturn = data[i];
         data[i] = e;
         return toReturn;
     }
 
-    public void add(int index, E element) {
+    public void add(int index, E element) throws IndexOutofBoundException {
         checkIndex(index, size());
         if (size == data.length) {
             E[] newData = new E[data.length*2];
@@ -37,7 +37,7 @@ public class ArrayList<E> implements List<E> {
             data = newData;
         }
 
-        for (int i=index; i<data.length; i++) {
+        for (int i=size()-1; i>=index; i--) {
             data[i+1] = data[i];
         }
 
@@ -45,7 +45,7 @@ public class ArrayList<E> implements List<E> {
         size++;
     }
 
-    public E remove(int index) {
+    public E remove(int index) throws IndexOutofBoundException {
         checkIndex(index, size());
         if (isEmpty()) {return null;}
 
