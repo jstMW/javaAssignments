@@ -1,5 +1,7 @@
 package Ass3.q2;
 import java.lang.IndexOutOfBoundsException;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class ArrayList<E> implements List<E> {
     private E[] data;
@@ -32,7 +34,7 @@ public class ArrayList<E> implements List<E> {
     public void add(int index, E element) throws IndexOutOfBoundsException {
         checkIndex(index, size());
         if (size == data.length) {
-            E[] newData = new E[data.length*2];
+            E[] newData = (E[]) new Object[data.length*2];
             for (int i=0; i<data.length; i++) {
                 newData[i] = data[i];
             }
@@ -66,7 +68,18 @@ public class ArrayList<E> implements List<E> {
         if (index < 0 || index >= size) {throw new IndexOutOfBoundsException("Illegal Index: " + index);}
      }
 
+     private class ArrayListIter implements Iterator<E> {
+        private int j = 0;
+        public boolean hasNext() {return j<size;}
+        public E next() throws NoSuchElementException{
+            if (j == size) { throw new NoSuchElementException("no next element");}
+            return data[j++];
+        }
+     }
 
+     public Iterator<E> iterator() {
+        return new ArrayListIter();
+     }
 
 
 

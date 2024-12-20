@@ -20,18 +20,19 @@ public class Passenger {
     public Date getRegisterationDate() {return registerationDate;}
 
 
-    public Passenger PassengerComparator(Passenger a, Passenger b) {
-        int compareFare = compare(a.getFare(), b.getFare());
+
+    public static Passenger PassengerComparator(Passenger a, Passenger b) {
+        int compareFare = compare(a.getFareCode(), b.getFareCode());
         if ( compareFare != 0) {
             return compareFare > 0 ? a : b;
         }
-        int compareFlyerStatus = compare(a.getFlyerStatus(), b.getFlyerStatus());
+        int compareFlyerStatus = compare(a.getFlyerStatusCode(), b.getFlyerStatusCode());
         if (compareFlyerStatus != 0) {
             return compareFlyerStatus > 0 ? a : b;
         }
 
-        //nothing was mentioned for a case that two passnger could have the same Date so, no need to check if != 0
-        int compareDate = comaper(a.getDate(), b.getDate()); 
+        //nothing was mentioned for a case that two passenger could have the same Date so, no need to check if != 0
+        int compareDate = compare(a.getRegisterationDate(), b.getRegisterationDate());
         return compareDate > 0 ? a : b;
 
     }

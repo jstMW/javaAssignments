@@ -8,7 +8,7 @@ public enum Fare {
         int ordinal = rand.nextInt()%3;
         for (Fare f: Fare.values()) {
             if (f.ordinal() == ordinal) { return f; }
-
         }
+        throw new IllegalArgumentException("no ordinal for Fare enum. ordinal: " + ordinal);
     }
 }

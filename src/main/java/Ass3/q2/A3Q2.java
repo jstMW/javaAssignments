@@ -19,16 +19,16 @@ public class A3Q2 {
         //Add them to queue
         HeapPriorityQueue hpq = new HeapPriorityQueue();
 
-        hpq.insert(p1);
-        hpq.insert(p2);
-        hpq.insert(p3);
-        hpq.insert(p4);
-        hpq.insert(p5);
-        hpq.insert(p6);
-        hpq.insert(p7);
-        hpq.insert(p8);
-        hpq.insert(p9);
-        hpq.insert(p10);
+        hpq.insert(p1, p1.getPassportNo());
+        hpq.insert(p2, p2.getPassportNo());
+        hpq.insert(p3, p3.getPassportNo());
+        hpq.insert(p4, p4.getPassportNo());
+        hpq.insert(p5, p5.getPassportNo());
+        hpq.insert(p6, p6.getPassportNo());
+        hpq.insert(p7, p7.getPassportNo());
+        hpq.insert(p8, p8.getPassportNo());
+        hpq.insert(p9, p9.getPassportNo());
+        hpq.insert(p10, p10.getPassportNo());
 
 
         //Board 5 Passenger
@@ -45,11 +45,11 @@ public class A3Q2 {
         Passenger p14 = new Passenger(kbd.next());
         Passenger p15 = new Passenger(kbd.next());
 
-        hpq.insert(p11);
-        hpq.insert(p12);
-        hpq.insert(p13);
-        hpq.insert(p14);
-        hpq.insert(p15);
+        hpq.insert(p11, p11.getPassportNo());
+        hpq.insert(p12, p12.getPassportNo());
+        hpq.insert(p13, p13.getPassportNo());
+        hpq.insert(p14, p14.getPassportNo());
+        hpq.insert(p15, p15.getPassportNo());
 
         //Board the rest
         hpq.removeMin();
@@ -72,12 +72,12 @@ public class A3Q2 {
 
             System.out.println("----------------------------------");
 
-            for (int i = 0; i < heap.length; i++) {
+            for (int i = 0; i < hpq.size(); i++) {
                 if (count == 0) {
                     System.out.print("| Level " + level + " | ");
                 }
 
-                System.out.print(heap[i] + " ");
+                //System.out.print(hpq + " ");
                 count++;
 
                 if (count == nodesInLevel) {
@@ -93,17 +93,6 @@ public class A3Q2 {
             }
 
             System.out.println("----------------------------------");
-        }
-
     }
+
 }
-
-
-
-
-
-
-
-
-
-

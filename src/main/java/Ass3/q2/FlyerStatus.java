@@ -5,10 +5,11 @@ public enum FlyerStatus {
 
     public static FlyerStatus randomValue() {
         Random rand = new Random();
-        int ordinal = rand.nextInt()%4;
+        int ordinal = rand.nextInt(4);
         for (FlyerStatus f: FlyerStatus.values()) {
             if (f.ordinal() == ordinal) { return f; }
         }
+        throw new IllegalArgumentException("no ordinal for FlyerStatus enum. ordinal: " + ordinal);
     }
 
 
