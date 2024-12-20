@@ -29,7 +29,8 @@ public abstract class AbstractPriorityQueue<K, V> implements PriorityQueue<K, V>
         try {
             return comp.compare(key, key) == 0;
         } catch (ClassCastException e) {
-            throw new IllegalArgumentException("Incompatible key");
+            System.out.println(e);
+            throw new IllegalArgumentException("Incompatible key: " + key);
         }
     }
 

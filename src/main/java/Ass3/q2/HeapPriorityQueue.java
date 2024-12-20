@@ -25,7 +25,7 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
     public  Entry<K, V> insert(K key, V value) throws IllegalArgumentException {
         checkKey(key);
         Entry<K, V> newest = new PQEntry<>(key, value);
-        heap.add(heap.size()-1, newest);
+        heap.add(heap.size(), newest);
         unHeap(heap.size()-1);
         return newest;
     }
@@ -42,6 +42,7 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
         if (heap.isEmpty()) {return null;}
         Entry<K, V> toReturn = heap.get(0);
         swap(0, heap.size()-1);
+
         heap.remove(heap.size()-1);
         downHeap(0);
         return toReturn;
@@ -74,5 +75,18 @@ public class HeapPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
         return heap.get(0);
     }
 
+    public String toString() {
+        StringBuilder sb = new StringBuilder("[");
+        for (Entry<K, V> e: heap) {
+            sb.append(e.getKey());
+            sb.append(", ");
+        }
+        if (sb.length()-1>0) {
+            sb.deleteCharAt(sb.length() - 1);
+            sb.deleteCharAt(sb.length() - 1);
+        }
+        sb.append("]");
+        return sb.toString();
+    }
 
 }

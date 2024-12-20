@@ -1,7 +1,7 @@
 package Ass3.q2;
 import java.util.Date;
 
-public class Passenger {
+public class Passenger implements Comparable<Passenger>{
     private String passportNo;
     private Fare fareCode;
     private FlyerStatus flyerStatusCode;
@@ -21,20 +21,30 @@ public class Passenger {
 
 
 
-    public static Passenger PassengerComparator(Passenger a, Passenger b) {
+    public static int PassengerComparator(Passenger a, Passenger b) {
         int compareFare = (a.getFareCode()).compareTo(b.getFareCode());
         if ( compareFare != 0) {
-            return compareFare > 0 ? a : b;
+            return compareFare;
         }
         int compareFlyerStatus = (a.getFlyerStatusCode()).compareTo(b.getFlyerStatusCode());
         if (compareFlyerStatus != 0) {
-            return compareFlyerStatus > 0 ? a : b;
+            return compareFlyerStatus;
         }
 
         //nothing was mentioned for a case that two passenger could have the same Date so, no need to check if != 0
         int compareDate = (a.getRegisterationDate()).compareTo(b.getRegisterationDate());
-        return compareDate > 0 ? a : b;
+        if (compareDate != 0) {
+            return compareDate;
+        }
+        return 0;
 
+    }
+    public int compareTo(Passenger p) {
+       return PassengerComparator(this, p);
+    }
+
+    public String toString() {
+        return getPassportNo();
     }
 
 }

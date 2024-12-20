@@ -32,7 +32,7 @@ public class ArrayList<E> implements List<E> {
     }
 
     public void add(int index, E element) throws IndexOutOfBoundsException {
-        checkIndex(index, size());
+        checkIndex(index, size()+1);
         if (size == data.length) {
             E[] newData = (E[]) new Object[data.length*2];
             for (int i=0; i<data.length; i++) {
@@ -55,7 +55,7 @@ public class ArrayList<E> implements List<E> {
 
         E toReturn = data[index];
 
-        for (int i=index; i<size; i++) {
+        for (int i=index; i<size-1; i++) {
             data[i] = data[i+1];
         }
 
