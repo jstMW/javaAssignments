@@ -22,17 +22,17 @@ public class Passenger {
 
 
     public static Passenger PassengerComparator(Passenger a, Passenger b) {
-        int compareFare = compare(a.getFareCode(), b.getFareCode());
+        int compareFare = (a.getFareCode()).compareTo(b.getFareCode());
         if ( compareFare != 0) {
             return compareFare > 0 ? a : b;
         }
-        int compareFlyerStatus = compare(a.getFlyerStatusCode(), b.getFlyerStatusCode());
+        int compareFlyerStatus = (a.getFlyerStatusCode()).compareTo(b.getFlyerStatusCode());
         if (compareFlyerStatus != 0) {
             return compareFlyerStatus > 0 ? a : b;
         }
 
         //nothing was mentioned for a case that two passenger could have the same Date so, no need to check if != 0
-        int compareDate = compare(a.getRegisterationDate(), b.getRegisterationDate());
+        int compareDate = (a.getRegisterationDate()).compareTo(b.getRegisterationDate());
         return compareDate > 0 ? a : b;
 
     }
